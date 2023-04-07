@@ -63,8 +63,12 @@ const options = {
 };
 
 export const searchGoogleBooks = (query) => {
+  
   return fetch(`https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=${query}`, options)
 	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+	// .then(response => console.log(response))
+	// .catch(err => console.error(err));
+  
+  
 }
+

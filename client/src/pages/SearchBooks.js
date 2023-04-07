@@ -38,26 +38,44 @@ const SearchBooks = () => {
 
     try {
       const response = await searchGoogleBooks(searchInput);
-      console.log(response)
-      if (!response.ok) {
+      console.log(response, 'response')
+      
+      if (!response) {
+        console.log('line 44')
         throw new Error('something went wrong!');
-      }
+        
+      } else{
+     
+        console.log('line 49')
 
-      const { items } = await response.json();
+     console.log(response.map())
+     
 
-      const bookData = items.map((book) => ({
-        bookId: book.id,
-        authors: book.volumeInfo.authors || ['No author to display'],
-        title: book.volumeInfo.title,
-        description: book.volumeInfo.description,
-        image: book.volumeInfo.imageLinks?.thumbnail || '',
-        link: book.volumeInfo.infoLink
+      const recipeData = response.map((recipe) => ({
+        recipeName: recipe[0].title,
       }));
+      
+      console.log(recipeData, 'recipeData')
+      
 
-      setSearchedBooks(bookData);
+      
+
+        
+
+      // const bookData = items.map((book) => ({
+      //   bookId: book.id,
+      //   authors: book.volumeInfo.authors || ['No author to display'],
+      //   title: book.volumeInfo.title,
+      //   description: book.volumeInfo.description,
+      //   image: book.volumeInfo.imageLinks?.thumbnail || '',
+      //   link: book.volumeInfo.infoLink
+      // }));
+
+      setSearchedBooks(recipeData);
       setSearchInput('');
+    }
     } catch (err) {
-      console.error(err);
+      //console.error(err);
     }
   };
 
@@ -93,7 +111,7 @@ const SearchBooks = () => {
     <>
       <div className="text-light bg-dark p-5">
         <Container>
-          <h1>Search for Books!</h1>
+          <h1>Search for Recipes!</h1>
           <Form onSubmit={handleFormSubmit}>
             <Form>
               <Col xs={12} md={8}>
@@ -154,6 +172,6 @@ const SearchBooks = () => {
     </>
   );
 };
-console.log('hello again')
+
 
 export default SearchBooks;
