@@ -18,7 +18,6 @@ import Dashboard from './pages/Dashboard';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Donate from './pages/Donate';
-import Recipe from './pages/Recipe';
 import Terms from './pages/Terms';
 import Navbar from './components/navigation/Navbar';
 
@@ -59,7 +58,6 @@ function App() {
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/donate' element={<Donate />} />
-            <Route path='/view' element={<Recipe />} />
             <Route path='/terms' element={<Terms />} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Routes>

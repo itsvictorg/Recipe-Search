@@ -7,6 +7,8 @@
 
 // here is where all the saving hooks and states and effects need to be placed now.
 
+// will be a modal that pops up when the user clicks on the save button. can be exed off so the user can still view their search.
+
 import React from 'react';
 
 
