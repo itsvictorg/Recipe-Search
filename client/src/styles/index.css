@@ -1,17 +1,34 @@
+/* index original preexiting styling */
 body {
-    font-family: 'Rubik', sans-serif;
+  font-family: 'Rubik', sans-serif;
   }
   
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: 'Rubik Mono One', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Rubik Mono One', sans-serif;
   }
   
-  .small {
-    font-weight: 300;
-    font-style: italic;
-  }
+.small {
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* each pages style to index */
+.page-cont{
+  margin: var(--SmallSpace);
+  min-height: calc(100dvh - (275px + 56px));
+  text-align: center;
+}
+
+.page-cont h2{
+  margin: 0;
+  padding: 15px;
+}
+
+.article{
+  padding: 15px;
+}
