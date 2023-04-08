@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
-import SignUpForm from './SignupForm';
-import LoginForm from './LoginForm';
 
-import Auth from '../utils/auth';
+import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
+
+import SignUpForm from '../../components/forms/SignupForm';
+import LoginForm from '../../components/forms/LoginForm';
+
+import Auth from '../../utils/auth';
 
 const AppNavbar = () => {
   // set modal display state
@@ -21,13 +23,19 @@ const AppNavbar = () => {
           <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
             <Nav className='ml-auto d-flex'>
               <Nav.Link as={Link} to='/'>
-                Search For Recipes!
+                Search for Recipes!
               </Nav.Link>
-              {/* if user is logged in show saved books and logout */}
+              <Nav.Link as={Link} to='/about'>
+                About Us
+              </Nav.Link>
+              <Nav.Link as={Link} to='/contact'>
+                Contact Us
+              </Nav.Link>
+              {/* if user is logged in show saved recipes and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/saved'>
-                    See Your Books
+                  <Nav.Link as={Link} to='/dashboard'>
+                    User Dashboard
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>

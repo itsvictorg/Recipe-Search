@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
+
 import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
 
+import { ADD_USER } from '../../utils/mutations';
 
-//import { createUser } from '../utils/API';
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
 
 const SignupForm = () => {
   // set initial form state
@@ -15,7 +15,8 @@ const SignupForm = () => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-  const [addUser] = useMutation(ADD_USER);
+  // mutation for new user to be added same { error } defined but not read!!
+  const [createUser] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -30,32 +31,15 @@ const SignupForm = () => {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-    }
-
+    };
+    // the data action will be named after the resolver
     try {
-      const { data } = await addUser({
-        variables: { ...userFormData },
-      });
-
+      const { data } = await createUser({ variables: { ...userFormData } });
       Auth.login(data.addUser.token);
-    } catch (e) {
-      console.error(e);
-    }
-
-    // try {
-    //   const response = await createUser(userFormData);
-
-    //   if (!response.ok) {
-    //     throw new Error('something went wrong!');
-    //   }
-
-    //   const { token, user } = await response.json();
-    //   console.log(user);
-    //   Auth.login(token);
-    // } catch (err) {
-    //   console.error(err);
-    //   setShowAlert(true);
-    // }
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);
+    };
 
     setUserFormData({
       username: '',
@@ -81,6 +65,7 @@ const SignupForm = () => {
             name='username'
             onChange={handleInputChange}
             value={userFormData.username}
+            autoComplete="on"
             required
           />
           <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
@@ -94,6 +79,7 @@ const SignupForm = () => {
             name='email'
             onChange={handleInputChange}
             value={userFormData.email}
+            autoComplete="on"
             required
           />
           <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
@@ -107,6 +93,7 @@ const SignupForm = () => {
             name='password'
             onChange={handleInputChange}
             value={userFormData.password}
+            autoComplete="on"
             required
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>

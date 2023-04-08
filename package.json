@@ -1,5 +1,5 @@
 {
-  "name": "googlebooks-app",
+  "name": "personal-recipes",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -14,11 +14,5 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
-  },
-  "dependencies": {
-    "apollo-server-express": "^3.12.0",
-    "express": "^4.18.2",
-    "graphql": "^16.6.0",
-    "heroku": "^8.0.2"
   }
 }
