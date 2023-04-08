@@ -23,3 +23,39 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+// CHECK OUT THE SAVE MODEL HERE 
+export const SAVE_RECIPE = gql`
+  mutation saveRecipe($newRecipe: InputRecipe) {
+    saveRecipe(newRecipe: $newRecipe) {
+      username
+      email
+      recipeCount
+      savedRecipes {
+        recipeId
+        title
+        servings
+        ingredients
+        instructions
+      }
+    }
+  }
+`;
+
+// SAME CHECK OUT MODEL FLOW
+export const REMOVE_RECIPE = gql`
+  mutation removeRecipe($recipeId: String!) {
+    removeRecipe(recipeId: $recipeId) {
+      username
+      email
+      recipeCount
+      savedRecipes {
+        recipeId
+        title
+        servings
+        ingredients
+        instructions
+      }
+    }
+  }
+`;
