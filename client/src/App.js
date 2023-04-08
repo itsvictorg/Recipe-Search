@@ -19,6 +19,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Donate from './pages/Donate';
 import Terms from './pages/Terms';
+import Advice from './pages/Advice';
 import Navbar from './components/navigation/Navbar';
 
 // Construct our main GraphQL API endpoint
@@ -52,11 +53,13 @@ function App() {
       <Router>
         <>
           <Navbar />          
-          <Routes>             
+          <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/about' element={<About />} />
+            <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/contact' element={<Contact />} />
+            {/* temporary implementation into routes for viewing needs to go to footer nav routing */}
+            <Route path='/advice' element={<Advice />} />
             <Route path='/donate' element={<Donate />} />
             <Route path='/terms' element={<Terms />} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
