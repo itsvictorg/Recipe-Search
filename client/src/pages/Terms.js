@@ -2,13 +2,19 @@
 
 import React from 'react';
 
-
+import '../styles/Terms.css';
 
 // this div should be a header but navbar needs to be re-structure classes and whatnot
 const Terms = () => {
   return (
     <>
-    <h2>Terms and Usage</h2>
+    <section className='page-cont'>
+      <h2>Terms and Usage</h2>
+      <article>
+        <p>Paragraph going over public terms of use.</p>
+      </article>
+
+    </section>
     </>
   );
 };

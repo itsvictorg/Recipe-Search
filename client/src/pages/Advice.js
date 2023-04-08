@@ -2,15 +2,15 @@
 import React from 'react';
 
 
-
+import '../styles/Advice.css';
 
 const Advice = () => {
   return (
     <>
-      <section>
+      <section className='cont-page'>
         <h2>Expert Advice</h2>
 
-        <article>
+        <article className='article'>
           <p>Here is a list of some tips and tricks to help you get started with your own recipes.</p>
           <ul>
             <li>Make sure you have all the ingredients you need before you start cooking.</li>

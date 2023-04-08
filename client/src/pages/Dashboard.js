@@ -1,4 +1,6 @@
 // this was the saved books file.
+// styling some how will need to be refactored.
+// once adding a recipe is working we'll come back to this deleting styling after we ensure it's functionality.
 import React from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 
@@ -9,6 +11,9 @@ import {
   Row,
   Col
 } from 'react-bootstrap';
+
+// here are the personal styling file for this page.
+import '../styles/Dashboard.css';
 
 import { GET_ME } from '../utils/queries';
 import { REMOVE_RECIPE } from '../utils/mutations';

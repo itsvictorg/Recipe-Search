@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-
+import '../styles/Donate.css'
 
 const Donate = () => {
   return (
