@@ -6,6 +6,7 @@ const Header = () => {
         <>
             <div>
                 <h1>Search for Recipes!</h1>
+                <h1>Create a Recipe</h1>
             </div>
         </>
     )

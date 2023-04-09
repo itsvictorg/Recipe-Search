@@ -51,11 +51,25 @@ export const REMOVE_RECIPE = gql`
       recipeCount
       savedRecipes {
         recipeId
+        author
         title
         servings
         ingredients
         instructions
       }
+    }
+  }
+`;
+
+export const ADD_RECIPE = gql`
+  mutation addRecipe($title: String!, $author: String!, $servings: String!, $ingredients: String!, $instructions: String!) {
+    addRecipe(title: $title, author: $author, servings: $servings, ingredients: $ingredients, instructions: $instructions) {
+      author
+      title
+      servings
+      ingredients
+      instructions
+      
     }
   }
 `;

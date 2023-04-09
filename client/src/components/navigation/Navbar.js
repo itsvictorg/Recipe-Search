@@ -19,11 +19,15 @@ const AppNavbar = () => {
           <Navbar.Brand as={Link} to='/'>
             Recipe Search
           </Navbar.Brand>
+         
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
             <Nav className='ml-auto d-flex'>
               <Nav.Link as={Link} to='/'>
                 Search for Recipes!
+              </Nav.Link>
+              <Nav.Link as={Link} to='/create'>
+                Create a Recipe!
               </Nav.Link>
               <Nav.Link as={Link} to='/about'>
                 About Us
@@ -35,7 +39,7 @@ const AppNavbar = () => {
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to='/dashboard'>
-                    User Dashboard
+                    {Auth.getProfile().data.username}'s Dashboard
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>

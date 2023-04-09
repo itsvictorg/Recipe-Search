@@ -21,6 +21,7 @@ import Donate from './pages/Donate';
 import Recipe from './pages/Recipe';
 import Terms from './pages/Terms';
 import Navbar from './components/navigation/Navbar';
+import Create from './pages/Create';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -56,6 +57,7 @@ function App() {
           <Routes>             
             <Route path='/' element={<Home />} />
             <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/create' element={<Create />} />
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/donate' element={<Donate />} />
