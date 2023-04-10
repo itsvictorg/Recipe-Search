@@ -1,0 +1,64 @@
+/* index original preexiting styling */
+body {
+  font-family: 'Rubik', sans-serif;
+  }
+  
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Rubik Mono One', sans-serif;
+  }
+  
+.small {
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* adding styling here for each pages style that will repeat*/
+.page-cont{
+  margin: var(--SmallSpace);
+  min-height: calc(100dvh - (275px + 56px));
+  text-align: center;
+}
+
+.page-cont h2{
+  margin: 0;
+  padding: 15px;
+}
+
+.article{
+  padding: 0 15px;
+}
+
+
+
+/* media screen queries should go here in index which is always active*/
+/* or create an additional css file called utility and import to index.js along with index.css*/
+/* remember to be start on the smaller size first */
+
+@media screen and (min-width: 270px) {
+  .advice-list a{
+    display: block;
+  }
+}
+
+@media screen and (min-width: 540px) {
+  /* advice page style */
+ .advice-list{
+  width: 75%;
+ }
+}
+
+@media screen and (min-width: 824px) {
+  /* advice page style */
+ .advice-list a{
+  display: inline-block;
+ }
+ .advice p{
+  margin: 0 auto 15px auto;
+  width: 75%;
+ }
+}
