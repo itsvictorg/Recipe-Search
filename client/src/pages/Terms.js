@@ -10,7 +10,7 @@ const Terms = () => {
     <>
     <section className='page-cont'>
       <h2>Terms and Usage</h2>
-      <article>
+      <article className='borderer'>
         <p>Paragraph going over public terms of use.</p>
       </article>
 

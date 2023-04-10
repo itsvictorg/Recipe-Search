@@ -10,7 +10,7 @@ const Contact = () => {
     <>
     <section className='page-cont'>
         <h2>Contact Us Anytime!</h2>
-      <div>
+      <div className='borderer'>
         <p>Not sure what to put in here as of yet.</p>
       </div>
 
