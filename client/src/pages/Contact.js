@@ -2,15 +2,15 @@
 
 import React from 'react';
 
-
+import '../styles/Contact.css';
 
 
 const Contact = () => {
   return (
     <>
-    <section>
+    <section className='page-cont'>
         <h2>Contact Us Anytime!</h2>
-      <div>
+      <div className='borderer'>
         <p>Not sure what to put in here as of yet.</p>
       </div>
 

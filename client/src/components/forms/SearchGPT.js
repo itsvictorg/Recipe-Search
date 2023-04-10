@@ -135,7 +135,7 @@ const SearchGPT = () => {
                 <Card border='dark'>
                   {/* {recipe.image ? (
                     <Card.Img src={recipe.image} alt={`The cover for ${recipe.title}`} variant='top' />
-                  ) : null} */}
+                  ) : null}   NOT NEEDED our search engine doesn't included images*/}
                   <Card.Body>
                     <Card.Title>{recipe.title}</Card.Title>
                     <p className='small'>servings: {recipe.servings}</p>

@@ -18,8 +18,8 @@ import Dashboard from './pages/Dashboard';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Donate from './pages/Donate';
-import Recipe from './pages/Recipe';
 import Terms from './pages/Terms';
+import Advice from './pages/Advice';
 import Navbar from './components/navigation/Navbar';
 import Create from './pages/Create';
 
@@ -54,14 +54,14 @@ function App() {
       <Router>
         <>
           <Navbar />          
-          <Routes>             
+          <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/dashboard' element={<Dashboard />} />
-            <Route path='/create' element={<Create />} />
             <Route path='/about' element={<About />} />
+            <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/contact' element={<Contact />} />
+            {/* temporary implementation into routes for viewing needs to go to footer nav routing */}
+            <Route path='/advice' element={<Advice />} />
             <Route path='/donate' element={<Donate />} />
-            <Route path='/view' element={<Recipe />} />
             <Route path='/terms' element={<Terms />} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Routes>
