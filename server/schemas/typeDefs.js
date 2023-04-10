@@ -3,6 +3,7 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   input InputRecipe {
     recipeId: Int
+    author: String
     title: String!
     ingredients: String!
     servings: String!
