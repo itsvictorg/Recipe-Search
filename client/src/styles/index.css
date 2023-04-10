@@ -40,7 +40,9 @@ h6 {
 /* remember to be start on the smaller size first */
 
 @media screen and (min-width: 270px) {
-
+  .advice-list a{
+    display: block;
+  }
 }
 
 @media screen and (min-width: 540px) {
@@ -52,7 +54,7 @@ h6 {
 
 @media screen and (min-width: 824px) {
   /* advice page style */
- .advice-list{
-  width: 80%;
+ .advice-list a{
+  display: inline-block;
  }
 }
