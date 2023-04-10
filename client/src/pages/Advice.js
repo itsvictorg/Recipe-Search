@@ -28,8 +28,8 @@ const Advice = () => {
       <section className='page-cont'>
         <h2>Expert Advice</h2>
        
-        <article className='advice'>
-          <h5>Here is a list of some tips and tricks to help you get started with your own recipes.</h5>
+        <article className='article'>
+          <h5 className='borderer'>Here is a list of some tips and tricks to help you get started with your own recipes.</h5>
           <ul className='advice-list'>
             <li>Read the entire recipe from start to finish.</li>
             <li>Make sure you have all the ingredients you need before you start cooking.</li>
@@ -43,11 +43,9 @@ const Advice = () => {
           </ul>
         </article>
        
-        <article className='advice'>
-          <p className='borderer'>Many people are passionate about cooking and have created awesome sites detailing more about cooking.  Some are even inspired with the way they feel while cooking.  Feel free to check out their awesome sites below.</p>
-          <div>
-            <h5>Here is a list of helpful sites we've obtained from google search.</h5>
-       
+        <article className='article advice'>
+          <h5 className='borderer'>Here is a list of helpful sites we've obtained from google search.</h5>
+          <p>Many people are passionate about cooking and have created awesome sites detailing more about cooking.  Some are even inspired with the way they feel while cooking.  Feel free to check out their awesome sites below.</p>       
             <ul className='advice-list'>
             {images.map((imgSrc, index) => {
               let keyId = index + 1;
@@ -59,7 +57,7 @@ const Advice = () => {
               );
             })}
             </ul>
-          </div>
+
         </article>
       </section>
     </>

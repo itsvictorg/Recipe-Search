@@ -9,10 +9,10 @@ import '../styles/Donate.css'
 const Donate = () => {
   return (
     <>
-    <section>
+    <section className='page-cont'>
       <h2>Donate Today</h2>
-      <article>
-        <p>Feel free to donate at anytime.  This site is a free site for users maintained by real people.  We put our personal time aside to create a platform for others personal use so any contribution is helpful and much appreciate.</p>
+      <article className='article donate borderer'>
+        <p>Feel free to donate at anytime.  This site is a free use for others maintained by real people.  We put our personal time aside to create a platforms for others personal use.  Any contributions are helpful.</p>
         <p>Just follow this link 'PLACE LINK HERE' and you'll be redirected to a secure site.</p>
         <p>Thank you for your support. It is always appreciated.</p>
       </article>

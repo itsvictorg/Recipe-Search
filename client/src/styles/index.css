@@ -30,7 +30,7 @@ h6 {
 }
 
 .article{
-  padding: 15px;
+  padding: 0 15px;
 }
 
 
@@ -56,5 +56,9 @@ h6 {
   /* advice page style */
  .advice-list a{
   display: inline-block;
+ }
+ .advice p{
+  margin: 0 auto 15px auto;
+  width: 75%;
  }
 }
