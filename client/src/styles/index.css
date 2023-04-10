@@ -32,3 +32,27 @@ h6 {
 .article{
   padding: 15px;
 }
+
+
+
+/* media screen queries should go here in index which is always active*/
+/* or create an additional css file called utility and import to index.js along with index.css*/
+/* remember to be start on the smaller size first */
+
+@media screen and (min-width: 270px) {
+
+}
+
+@media screen and (min-width: 540px) {
+  /* advice page style */
+ .advice-list{
+  width: 75%;
+ }
+}
+
+@media screen and (min-width: 824px) {
+  /* advice page style */
+ .advice-list{
+  width: 80%;
+ }
+}
