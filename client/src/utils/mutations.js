@@ -63,7 +63,7 @@ export const SAVE_RECIPE = gql`
 // SAME CHECK OUT MODEL FLOW
 export const REMOVE_RECIPE = gql`
   mutation removeRecipe(
-    $recipeId: String!
+    $recipeId: ID!
   ) {
     removeRecipe(
       recipeId: $recipeId
@@ -72,7 +72,6 @@ export const REMOVE_RECIPE = gql`
       recipeCount
       savedRecipes {
         recipeId
-        author
         title
         servings
         ingredients
@@ -82,15 +81,15 @@ export const REMOVE_RECIPE = gql`
   }
 `;
 
-// export const ADD_RECIPE = gql`
-//   mutation addRecipe($title: String!, $author: String!, $servings: String!, $ingredients: String!, $instructions: String!) {
-//     addRecipe(title: $title, author: $author, servings: $servings, ingredients: $ingredients, instructions: $instructions) {
-//       author
-//       title
-//       servings
-//       ingredients
-//       instructions
+export const ADD_RECIPE = gql`
+  mutation addRecipe($title: String!, $author: String!, $servings: String!, $ingredients: String!, $instructions: String!) {
+    addRecipe(title: $title, author: $author, servings: $servings, ingredients: $ingredients, instructions: $instructions) {
+      author
+      title
+      servings
+      ingredients
+      instructions
       
-//     }
-//   }
-// `;
+    }
+  }
+`;

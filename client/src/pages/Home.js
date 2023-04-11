@@ -2,7 +2,6 @@
 import React from 'react';
 import Header from '../components/header/index';
 import SearchGPT from '../components/forms/SearchGPT';
-import View from '../components/modals/View';
 import Footer from '../components/footer/index';
 
 
@@ -15,7 +14,6 @@ const Home = () => {
     <>
       <Header />
       <SearchGPT />
-      <View />
       <Footer />
     </>
   );
