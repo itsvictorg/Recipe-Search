@@ -12,6 +12,9 @@ import {
   Col
 } from 'react-bootstrap';
 
+// import create personal recipe form
+import PersonalRecipe from '../components/forms/PersonalRecipe';
+
 // here are the personal styling file for this page.
 import '../styles/Dashboard.css';
 
@@ -45,6 +48,7 @@ const Dashboard = () => {
 
   return (
     <>
+    <PersonalRecipe />
       <div className="text-light bg-dark p-5">
         <Container>
           <h1>Viewing saved Recipes!</h1>
