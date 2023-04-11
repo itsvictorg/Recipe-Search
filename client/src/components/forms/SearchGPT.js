@@ -10,6 +10,9 @@ import {
   Row
 } from 'react-bootstrap';
 
+// import full view of recipe
+import View from '../modals/View';
+
 import Auth from '../../utils/auth';
 
 import { recipeGPTsearch } from '../../utils/API';
@@ -19,6 +22,7 @@ import { saveRecipeIds, getSavedRecipeIds } from '../../utils/localStorage';
 // import mutation use and mutations
 import { useMutation } from '@apollo/client';
 import { SAVE_RECIPE } from '../../utils/mutations'
+import { generateUID } from '../../utils/helpers';
 
 const SearchGPT = () => {
   // create state for holding returned google api data
@@ -55,14 +59,13 @@ const SearchGPT = () => {
       const items = await response.json();
 
       const recipeData = items.map((recipe, index) => ({
-        recipeId: index + 1,
+        recipeId: generateUID(),
         title: recipe.title,
         servings: recipe.servings,
         ingredients: recipe.ingredients,
         instructions: recipe.instructions,
       }));
 
-      console.log(recipeData);
       setSearchedRecipes(recipeData);
       setSearchInput('');
     } catch (err) {
@@ -72,10 +75,10 @@ const SearchGPT = () => {
 
   // create function to handle saving a recipe to our database
   const handleSaveRecipe = async (recipeId) => {
-    // find the recipe in `searchedrecipes` state by the matching id
-    console.log('were in', recipeId);
-    const recipeToSave = searchedRecipes.find((recipe) => recipe.recipeId === recipeId);
+    console.log('Save Recipe', recipeId);
 
+    // find the recipe in `searchedrecipes` state by the matching id
+    const recipeToSave = searchedRecipes.find((recipe) => recipe.recipeId === recipeId);
     
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -83,21 +86,23 @@ const SearchGPT = () => {
     if (!token) {
       return false;
     }
-    console.log('before save', recipeToSave);
+    console.log('Token True', recipeToSave);
+
     try {
       await saveRecipe({
-        variables: { input: { ...recipeToSave } },
+        variables: { newRecipe: { ...recipeToSave } },
       });
       // if recipe successfully saves to user's account, save recipe id to state
       setSavedRecipeIds([...savedRecipeIds, recipeToSave.recipeId]);
-      console.log(savedRecipeIds);
+      console.log('useState setSavedRecipeIds', savedRecipeIds);
     }
     catch (err) {
       console.error(err);
     };
   };
 
-  
+
+
   return (
     <>
       <Container>
@@ -133,12 +138,18 @@ const SearchGPT = () => {
             return (
               <Col key={recipe.recipeId} md="4">
                 <Card border='dark'>
-                  {/* {recipe.image ? (
-                    <Card.Img src={recipe.image} alt={`The cover for ${recipe.title}`} variant='top' />
-                  ) : null}   NOT NEEDED our search engine doesn't included images*/}
-                  <Card.Body>
+                  {/* here i gave the card body data attributes would've used one but couldn't split data.  when clicked attribute values will be passed to view modal */}
+                  <Card.Body data-title={recipe.title} data-servings={recipe.servings} data-ingredients={recipe.ingredients} data-instructions={recipe.instructions}>
                     <Card.Title>{recipe.title}</Card.Title>
                     <p className='small'>servings: {recipe.servings}</p>
+                    <button className="recipe-modal-btn modal-color" onClick={(e) => {
+                      document.getElementById('id01').style.display='block';
+                      document.querySelector('.recipe-title').textContent = e.target.parentElement.dataset.title;
+                      document.querySelector('.recipe-servings').textContent = e.target.parentElement.dataset.servings;
+                      document.querySelector('.recipe-ingredients').textContent = e.target.parentElement.dataset.ingredients;
+                      document.querySelector('.recipe-instructions').textContent = e.target.parentElement.dataset.instructions;
+                      }}>View Recipe</button>
+
                     {Auth.loggedIn() && (
                       <Button
                         disabled={savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)}
@@ -156,6 +167,8 @@ const SearchGPT = () => {
           })}
         </Row>
       </Container>
+
+      <View />
     </>
   );
 };
