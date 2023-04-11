@@ -16,9 +16,34 @@ import React from 'react';
 
 const View = () => {
   return (
-    <>
+<div className="modal-container">
 
-    </>
+  <h2>W3.CSS Animated Modal</h2>
+  <p>Zoom in the modal with the w3-animate-zoom className</p>
+  <button className="recipe-modal-btn modal-color" onClick={() => {document.getElementById('id01').style.display='block'}}>Open Animated Modal</button>
+
+  <div id="id01" className="recipe-modal">
+    <div className="modal-content animate-zoom recipe-card">
+
+      <header className="modal-container modal-color"> 
+        <span className="recipe-modal-btn topright" onClick={() => {document.getElementById('id01').style.display='none'}}>&times;</span>
+        <h2>RECIPE TITLE</h2>
+      </header>
+
+      <div className="modal-container">
+        <p>RECIPE SERVINGS</p>
+        <p>RECIPE INGREDIENTS</p>
+        <p>RECIPE INSTRUCTIONS</p>
+      </div>
+
+      <footer className="modal-container modal-color">
+        <p>SEARCH PROVIDED BY</p>
+      </footer>
+
+    </div>
+  </div>
+
+</div>
   );
 };
 

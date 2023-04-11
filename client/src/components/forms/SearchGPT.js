@@ -63,7 +63,7 @@ const SearchGPT = () => {
         instructions: recipe.instructions,
       }));
 
-      console.log(recipeData);
+      console.log('Response to Search');
       setSearchedRecipes(recipeData);
       setSearchInput('');
     } catch (err) {

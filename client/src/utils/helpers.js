@@ -1,3 +1,5 @@
+// RESOURCE https://stackoverflow.com/questions/6248666/how-to-generate-short-uid-like-ax4j9z-in-js
+
 export function generateUID() {
 
     // I generate the UID from two parts here 
