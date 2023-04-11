@@ -26,9 +26,9 @@ const AppNavbar = () => {
               <Nav.Link as={Link} to='/'>
                 Search for Recipes!
               </Nav.Link>
-              <Nav.Link as={Link} to='/create'>
+              {/* <Nav.Link as={Link} to='/create'>
                 Create a Recipe!
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link as={Link} to='/about'>
                 About Us
               </Nav.Link>

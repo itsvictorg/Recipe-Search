@@ -19,6 +19,7 @@ import { saveRecipeIds, getSavedRecipeIds } from '../../utils/localStorage';
 // import mutation use and mutations
 import { useMutation } from '@apollo/client';
 import { SAVE_RECIPE } from '../../utils/mutations'
+import { generateUID } from '../../utils/helpers';
 
 const SearchGPT = () => {
   // create state for holding returned google api data
@@ -55,7 +56,7 @@ const SearchGPT = () => {
       const items = await response.json();
 
       const recipeData = items.map((recipe, index) => ({
-        recipeId: index + 1,
+        recipeId: generateUID(),
         title: recipe.title,
         servings: recipe.servings,
         ingredients: recipe.ingredients,
@@ -84,9 +85,10 @@ const SearchGPT = () => {
       return false;
     }
     console.log('before save', recipeToSave);
+
     try {
       await saveRecipe({
-        variables: { input: { ...recipeToSave } },
+        variables: { newRecipe: { ...recipeToSave } },
       });
       // if recipe successfully saves to user's account, save recipe id to state
       setSavedRecipeIds([...savedRecipeIds, recipeToSave.recipeId]);

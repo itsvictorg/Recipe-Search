@@ -42,14 +42,14 @@ const resolvers = {
       return { token, user };
     },
     // pull user input from args and add to set return new true
-    saveRecipe: async (parent, args, context) => {
-      console.log('hit save recipe');
-      console.log(context.user);
-      console.log(args);
+    saveRecipe: async (parent, { newRecipe}, context) => {
+
+      console.log('hit save recipe', context);
+
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedRecipes: input } },
+          { $addToSet: { savedRecipes: newRecipe } },
           { new: true }
         ).populate('savedRecipes');
 
@@ -60,6 +60,9 @@ const resolvers = {
     },
     // pull recipe id from args to remove
     removeRecipe: async (parent, { recipeId }, context) => {
+
+      console.log('hit remove recipe', recipeId, context.user._id);
+
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
