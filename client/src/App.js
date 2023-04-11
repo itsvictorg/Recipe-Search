@@ -23,6 +23,9 @@ import Advice from './pages/Advice';
 import Navbar from './components/navigation/Navbar';
 import Create from './pages/Create';
 
+import Footer from './components/footer';
+
+
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
