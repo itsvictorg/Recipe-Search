@@ -1,5 +1,14 @@
 /* GITHUB ICON */
-.icon {
-    height: 30px;
-  
-  }
+
+
+.foot-links a {
+  color: white;
+}
+
+.foot-links a:hover {
+  color: rgb(226, 0, 0);
+}
+
+.foot-links a img {
+  margin: 10px;
+}
