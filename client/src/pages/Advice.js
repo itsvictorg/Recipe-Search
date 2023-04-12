@@ -3,6 +3,8 @@ import React from 'react';
 
 import '../styles/Advice.css';
 
+import { generateUID } from '../utils/helpers';
+
 
 // collecting all images from /images/advice folder
 function importAll(imgContext) {
@@ -48,9 +50,8 @@ const Advice = () => {
           <p>Many people are passionate about cooking and have created awesome sites detailing more about cooking.  Some are even inspired with the way they feel while cooking.  Feel free to check out their awesome sites below.</p>       
             <ul className='advice-list'>
             {images.map((imgSrc, index) => {
-              let keyId = index + 1;
               return (
-                <li key={keyId}>
+                <li key={generateUID()}>
                   <img className='img-desktop' src={imgSrc} alt='from site' width='100' height='100' />
                   <a href={adviceLinks[index]}>&nbsp;How to Set Up a Prep Station Like a Pro Cook</a>
                 </li>
