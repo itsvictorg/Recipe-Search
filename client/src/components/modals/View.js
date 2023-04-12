@@ -1,7 +1,7 @@
 // View Modal: user can view entire recipe before saving.
 
 import React from 'react';
-import SearchGPT from '../forms/SearchGPT';
+
 
 const View = () => {
   return (
