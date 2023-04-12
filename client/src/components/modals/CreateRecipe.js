@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import SearchGPT from "../forms/SearchGPT";
 
-import { ADD_RECIPE } from "../../utils/mutations";
-import { QUERY_RECIPES } from "../../utils/queries";
+import { ADD_RECIPE } from "../utils/mutations";
+import { QUERY_RECIPES } from "../utils/queries";
 
-import Auth from "../../utils/auth";
+import Auth from "../utils/auth";
 
 const RecipeForm = () => {
   const [{ title, servings, ingredients, instructions }, setRecipe] =
@@ -53,38 +52,20 @@ const RecipeForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === "title" && value.length <= 280) {
+    if (name === "recipeText" && value.length <= 280) {
       setRecipe(value);
       setCharacterCount(value.length);
     }
-    if (name === "servings" && value.length <= 280) {
-      setRecipe(value);
-      setCharacterCount(value.length);
-    }
-    if (name === "ingredients" && value.length <= 280) {
-      setRecipe(value);
-      setCharacterCount(value.length);
-    }
-    if (name === "instructions" && value.length <= 280) {
-      setRecipe(value);
-      setCharacterCount(value.length);
-    }
-   
   };
 
   return (
     <div className="modal-container">
-      <div id="id02" className="create-recipe-modal">
-        
+    <div id="id02" className="recipe-modal">
         <div className="modal-content animate-zoom recipe-card">
-        <header className="modal-container modal-color"> 
-        <span className="recipe-modal-btn topright" onClick={() => {document.getElementById('id02').style.display='none'}}>&times;</span>
-      <h3>Create a New Recipe</h3>
-      </header>
+            <h3>Create a New Recipe</h3>
 
       {Auth.loggedIn() ? (
         <>
-        <div className="modal-container">
           <p
             className={`m-0 ${
               characterCount === 280 || error ? "text-danger" : ""
@@ -142,7 +123,6 @@ const RecipeForm = () => {
               </div>
             )}
           </form>
-          </div>
         </>
       ) : (
         <p>
@@ -151,7 +131,7 @@ const RecipeForm = () => {
         </p>
       )}
       </div>
-      </div>
+    </div>
     </div>
   );
 };

@@ -3,6 +3,8 @@
 // once adding a recipe is working we'll come back to this deleting styling after we ensure it's functionality.
 import React from 'react';
 import { useQuery, useMutation } from '@apollo/client';
+import View from '../components/modals/View';
+
 
 import {
   Container,
@@ -48,7 +50,7 @@ const Dashboard = () => {
 
   return (
     <>
-    <PersonalRecipe />
+    {/* <PersonalRecipe /> */}
       <div className="text-light bg-dark p-5">
         <Container>
           <h1>Viewing saved Recipes!</h1>
@@ -60,16 +62,25 @@ const Dashboard = () => {
             ? `Viewing ${userData.savedRecipes.length} saved ${userData.savedRecipes.length === 1 ? 'recipe' : 'recipes'}:`
             : 'You have no saved recipes!'}
         </h2>
+       {/* create modal to view create recipe form */}
+        <Button className="create-recipe-modal-btn modal-color" onClick={(e) => 
+          document.getElementById('id02').style.display='block'}>Add Recipe</Button>
         <Row>
           {userData.savedRecipes.map((recipe) => {
             return (
               <Col md="4">
-                <Card key={recipe.recipeId} border='dark'>
-                  {recipe.image ? <Card.Img src={recipe.image} alt={`The cover for ${recipe.title}`} variant='top' /> : null}
-                  <Card.Body>
+                <Card border='dark'>
+                  {/* here i gave the card body data attributes would've used one but couldn't split data.  when clicked attribute values will be passed to view modal */}
+                  <Card.Body data-title={recipe.title} data-servings={recipe.servings} data-ingredients={recipe.ingredients} data-instructions={recipe.instructions}>
                     <Card.Title>{recipe.title}</Card.Title>
-                    <p className='small'>Authors: {recipe.authors}</p>
-                    <Card.Text>{recipe.description}</Card.Text>
+                    <p className='small'>servings: {recipe.servings}</p>
+                    <button className="recipe-modal-btn modal-color" onClick={(e) => {
+                      document.getElementById('id01').style.display='block';
+                      document.querySelector('.recipe-title').textContent = e.target.parentElement.dataset.title;
+                      document.querySelector('.recipe-servings').textContent = e.target.parentElement.dataset.servings;
+                      document.querySelector('.recipe-ingredients').textContent = e.target.parentElement.dataset.ingredients;
+                      document.querySelector('.recipe-instructions').textContent = e.target.parentElement.dataset.instructions;
+                      }}>View Recipe</button>
                     <Button className='btn-block btn-danger' onClick={() => handleDeleteRecipe(recipe.recipeId)}>
                       Delete this Recipe!
                     </Button>
@@ -80,6 +91,8 @@ const Dashboard = () => {
           })}
         </Row>
       </Container>
+      <View />
+      <PersonalRecipe />
     </>
   );
 };
