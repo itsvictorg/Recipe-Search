@@ -76,6 +76,10 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be logged in!");
     },
+    addRecipe: async (parent, {title, servings, ingredients, instructions}) => {
+      const newRecipe = await Recipe.create({title, servings, ingredients, instructions});
+      return newRecipe;
+    }
   },
 };
 

@@ -91,8 +91,9 @@ const Dashboard = () => {
           })}
         </Row>
       </Container>
-      <View />
       <PersonalRecipe />
+      <View />
+      
     </>
   );
 };
