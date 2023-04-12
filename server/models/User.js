@@ -23,6 +23,7 @@ const userSchema = new Schema(
     },
     // set savedRecipes to be an array of data that adheres to the recipeSchema
     savedRecipes: [userRecipeSchema],
+    userRecipes: [userRecipeSchema],
   },
   // set this to use virtual below
   {
