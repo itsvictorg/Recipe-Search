@@ -39,6 +39,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     saveRecipe(newRecipe: RecipeInput!): User
     removeRecipe(recipeId: ID!): User
+    addRecipe(newRecipe: RecipeInput!): User
   }
 `;
 

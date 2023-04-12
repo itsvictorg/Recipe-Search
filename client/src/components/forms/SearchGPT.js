@@ -139,7 +139,7 @@ const SearchGPT = () => {
               <Col key={recipe.recipeId} md="4">
                 <Card border='dark'>
                   {/* here i gave the card body data attributes would've used one but couldn't split data.  when clicked attribute values will be passed to view modal */}
-                  <Card.Body data-title={recipe.title} data-servings={recipe.servings} data-ingredients={recipe.ingredients} data-instructions={recipe.instructions}>
+                  <Card.Body data-function={handleSaveRecipe} data-title={recipe.title} data-servings={recipe.servings} data-ingredients={recipe.ingredients} data-instructions={recipe.instructions}>
                     <Card.Title>{recipe.title}</Card.Title>
                     <p className='small'>servings: {recipe.servings}</p>
                     <button className="recipe-modal-btn modal-color" onClick={(e) => {
