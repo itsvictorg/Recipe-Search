@@ -14,15 +14,15 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar bg='dark' variant='dark' expand='md'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
             Recipe Search
           </Navbar.Brand>
          
-          <Navbar.Toggle aria-controls='navbar' />
-          <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
-            <Nav className='ml-auto d-flex'>
+          <Navbar.Toggle aria-controls='navbar ' />
+          <Navbar.Collapse id='navbar' className='flex-row-reverse'>
+            <Nav className='align-items-end'>
               <Nav.Link as={Link} to='/'>
                 Search for Recipes!
               </Nav.Link>

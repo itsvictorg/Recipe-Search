@@ -33,7 +33,9 @@ h6 {
   padding: 0 15px;
 }
 
-
+/* .show{
+  display: inline;
+} */
 
 /* media screen queries should go here in index which is always active*/
 /* or create an additional css file called utility and import to index.js along with index.css*/
@@ -46,6 +48,7 @@ h6 {
   .icon {
     height: 30px;
   }
+
 }
 
 @media screen and (min-width: 540px) {
@@ -68,4 +71,8 @@ h6 {
   width: 75%;
  }
  
+}
+
+@media screen and (min-width: 1060px){
+
 }
