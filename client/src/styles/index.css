@@ -43,6 +43,9 @@ h6 {
   .advice-list a{
     display: block;
   }
+  .icon {
+    height: 30px;
+  }
 }
 
 @media screen and (min-width: 540px) {
@@ -50,6 +53,9 @@ h6 {
  .advice-list{
   width: 75%;
  }
+ .icon {
+  height: 60px;
+}
 }
 
 @media screen and (min-width: 824px) {
@@ -61,4 +67,5 @@ h6 {
   margin: 0 auto 15px auto;
   width: 75%;
  }
+ 
 }
