@@ -65,7 +65,7 @@ Repository Code:
  - https://github.com/itsvictorg/recipe-blog
 
 Heroku Live:
- - *coming soon ...*
+ - https://recipe-blog.herokuapp.com/
 
 ## License:
   

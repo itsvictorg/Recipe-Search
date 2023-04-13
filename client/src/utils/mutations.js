@@ -93,3 +93,18 @@ export const ADD_RECIPE = gql`
     }
   }
 `;
+
+export const ADD_DONATION = gql`
+  mutation addThought($thoughtText: String!, $thoughtAuthor: String!) {
+    addThought(thoughtText: $thoughtText, thoughtAuthor: $thoughtAuthor) {
+      _id
+      thoughtText
+      thoughtAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+      }
+    }
+  }
+`;

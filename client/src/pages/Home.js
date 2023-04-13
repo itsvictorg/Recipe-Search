@@ -2,7 +2,7 @@
 import React from 'react';
 import Header from '../components/header/index';
 import SearchGPT from '../components/forms/SearchGPT';
-import Footer from '../components/footer/index';
+
 
 
 // this is the styling file for the home page.
@@ -14,7 +14,7 @@ const Home = () => {
     <>
       <Header />
       <SearchGPT />
-      <Footer />
+
     </>
   );
 };
