@@ -127,7 +127,7 @@ const SearchGPT = () => {
         </Form>
       </Container>
 
-      <Container className=''>
+      <Container className='results'>
         <h2 className='pt-5'>
           {searchedRecipes.length
             ? `Viewing ${searchedRecipes.length} results:`
