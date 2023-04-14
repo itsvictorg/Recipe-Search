@@ -127,7 +127,7 @@ const SearchGPT = () => {
         </Form>
       </Container>
 
-      <Container className='results'>
+      <Container className=''>
         <h2 className='pt-5'>
           {searchedRecipes.length
             ? `Viewing ${searchedRecipes.length} results:`
@@ -139,7 +139,8 @@ const SearchGPT = () => {
               <Col key={recipe.recipeId} md="4">
                 <Card border='dark'>
                   {/* here i gave the card body data attributes would've used one but couldn't split data.  when clicked attribute values will be passed to view modal */}
-                  <Card.Body data-function={handleSaveRecipe} data-title={recipe.title} data-servings={recipe.servings} data-ingredients={recipe.ingredients} data-instructions={recipe.instructions}>
+                  {/* data-function={handleSaveRecipe} WHATEVER this is is causing an error when searching recipes. Data attributes can't be functions only values.*/}
+                  <Card.Body  data-title={recipe.title} data-servings={recipe.servings} data-ingredients={recipe.ingredients} data-instructions={recipe.instructions}>
                     <Card.Title>{recipe.title}</Card.Title>
                     <p className='small'>servings: {recipe.servings}</p>
                     <button className="recipe-modal-btn modal-color" onClick={(e) => {
