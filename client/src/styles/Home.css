@@ -1,4 +1,27 @@
 /* styling for homepage */
+
+/* James's HERO styling code here*/
+
+
+
+
+
+
+
+
+/* search box and results styling homepage */
+
+/*fills in void space until search results are displayed */
+/* NEED TO calc inside media queries */
+.results{
+    min-height: calc(100dvh - (23px + 586px));
+    margin-bottom: 15px;
+}
+
+.card-body{
+    min-height: 191px;
+}
+
 /* modal code provided by w3schools */
 .recipe-modal{
     z-index: 3;

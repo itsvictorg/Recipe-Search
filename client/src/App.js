@@ -23,7 +23,7 @@ import Advice from './pages/Advice';
 import Navbar from './components/navigation/Navbar';
 // import Create from './pages/Create';
 
-// import Footer from './components/footer';
+import Footer from './components/footer';
 
 
 // Construct our main GraphQL API endpoint
@@ -69,6 +69,7 @@ function App() {
             <Route path='/terms' element={<Terms />} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Routes>
+          <Footer />
         </>
       </Router>
     </ApolloProvider>
