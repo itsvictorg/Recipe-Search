@@ -5,14 +5,47 @@
     padding: 7px 15px;
 }
 
-.donate-now{
+.box-share{
     max-width: 300px;
     list-style-type: none;
-    padding: 0;
+    padding: 15px;
     margin: 0 auto 15px auto;
     box-shadow :0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+
+}
+.donate-now{
+    color: #fff!important;
+    background-color: #009688!important;
+}
+
+.donate-now input[type="submit"]{
+    color: #fff!important;
+    background-color: #009688!important;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 16px;
+}
+
+.donate-form{
+    color: black;
+    background-color: white;
+}
+
+.donator{
+    padding-bottom: 10px;
 }
 
 .donator label{
     display: block;
+    line-height: 1.5;
+}
+
+.check-list{
+    display: inline-block;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.donator:nth-child(4){
+    border-top: 2px solid #009688;
 }

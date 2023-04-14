@@ -35,3 +35,26 @@ export const QUERY_RECIPES = gql`
     }
   }
 `;
+
+export const ADD_DONATION = gql`
+  mutation addDonation(
+    $anyname: String!
+    $email: String!
+    $amount: String!
+  ) {
+    addDonation(
+      anyname: $anyname
+      email: $email
+      amount: $amount
+    ) {
+      
+      thoughtText
+      thoughtAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+      }
+    }
+  }
+`;

@@ -12,6 +12,7 @@
 /* search box and results styling homepage */
 
 /*fills in void space until search results are displayed */
+/* NEED TO calc inside media queries */
 .results{
     min-height: calc(100dvh - (23px + 586px));
     margin-bottom: 15px;

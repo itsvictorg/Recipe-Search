@@ -5,13 +5,14 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 
 //RENAME THIS IMPORT TO MATCH FOR QUERY TO ADD DONATION
-import { ADD_DONATION } from '../../utils/mutations';
+import { ADD_DONATION } from '../../utils/queries';
 
 
 export default function DonateForm() {
     const [formState, setFormState] = useState({
-        thoughtText: '',
-        thoughtAuthor: '',
+        anyname: '',
+        email: '',
+        amount: ''
     });
     
     const [addDonation] = useMutation(ADD_DONATION);
@@ -33,15 +34,15 @@ export default function DonateForm() {
     const handleChange = (event) => {
         // CHANGE IF'S TO SWITCH FOR THREE CASES
         const { name, value } = event.target;
-
+console.log(name)
         switch(name){
-            case 'name':{
+            case 'anyname':{
                 return setFormState({ ...formState, [name]: value });
             }
             case 'email':{
                 return setFormState({ ...formState, [name]: value });
             }
-            case 'currency-field':{
+            case 'amount':{
                 return setFormState({ ...formState, [name]: value });
             }
         }
@@ -49,19 +50,20 @@ export default function DonateForm() {
     };
 
   return (
-    <>
+    <section className='box-share donate-now'>
+        <h3>Donate Now</h3>
         <form
-            className='donate-now'
+            className='box-share donate-form'
             onSubmit={handleFormSubmit}
         >
             <div className='donator'>
-                <label>To be added to our 'Donators List' provide a name.</label>
+                <label>First and Last Names</label>
                 <input
                     type="text"
                     id="name"
-                    name="name"
-                    placeholder='username, first name, or full name'
-                    value={formState.name}
+                    name="anyname"
+                    placeholder='Enter full name'
+                    value={formState.anyname}
                     onChange={handleChange}
                 />
             </div>
@@ -80,8 +82,9 @@ export default function DonateForm() {
             </div>
             <div className='donator'>
                 <label>Enter Amount to Donate</label>
-                <input type="text"
-                    name="currency-field"
+                <input
+                    type="text"
+                    name="amount"
                     id="currency-field"
                     pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
                     data-type="currency"
@@ -91,8 +94,17 @@ export default function DonateForm() {
                     required
                 />
             </div>
+            <div className='donator'>
+                <label>Would you like to be added to our 'Donators List'?</label>
+                <p className='check-list'>check box:</p>
+                <input
+                    type="checkbox"
+                    id="donate-list"
+                    name="vehicle1"
+                    value={true} />
+                </div>
             <input type="submit" value="Submit" />
         </form>
-    </>
+    </section>
   );
 }
