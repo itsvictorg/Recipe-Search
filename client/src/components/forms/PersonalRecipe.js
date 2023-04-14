@@ -4,66 +4,109 @@ import { useMutation } from "@apollo/client";
 
 import { ADD_RECIPE } from "../../utils/mutations";
 import { QUERY_RECIPES } from "../../utils/queries";
+import { generateUID } from '../../utils/helpers';
 
 import Auth from "../../utils/auth";
 
 const RecipeForm = () => {
-  const [{ title, servings, ingredients, instructions }, setRecipe] =
-    useState("");
-
+  const [{ title }, setRecipeTitle] = useState("");
+  const [{ servings}, setRecipeServings] = useState("");
+  const [{ ingredients }, setRecipeIngredients] = useState("");
+  const [{ instructions }, setRecipeInstructions] = useState("");
+  const [{ newRecipe }, setRecipe] = useState({});
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addRecipe, { error }] = useMutation(ADD_RECIPE, {
     update(cache, { data: { addRecipe } }) {
       try {
-        const { recipes } = cache.readQuery({ query: QUERY_RECIPES });
-
+        const { recipes } = newRecipe;
+        
         cache.writeQuery({
           query: QUERY_RECIPES,
           data: { recipes: [addRecipe, ...recipes] },
         });
       } catch (e) {
+        
         console.error(e);
+
       }
     },
   });
+  
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const { data } = await addRecipe({
-        variables: { title, servings, ingredients, instructions },
-      });
+      const recipeData = {
+        title: title,
+        servings: servings,
+        ingredients: ingredients,
+        instructions: instructions,
+        Id: generateUID(),
+      };
 
-      setRecipe("");
-      console.log(data);
+      console.log(recipeData)
+
+      // const { data } = await addRecipe({
+      //   variables: recipeData,
+      // });
+
+      setRecipe(recipeData);
+      addRecipe(recipeData);
+      
+      setRecipeIngredients("");
+      setRecipeInstructions("");
+      setRecipeTitle("");
+      setRecipeServings("");
+      setCharacterCount(0);
+
     } catch (err) {
+      
+      console.log("submit error")
       console.error(err);
     }
   };
 
-  const handleChange = (event) => {
+  const handleTitleChange = (event) => {
     const { name, value } = event.target;
 
     if (name === "title" && value.length <= 280) {
-      setRecipe(value);
+      setRecipeTitle(value);
       setCharacterCount(value.length);
-    }
-    if (name === "servings" && value.length <= 280) {
-      setRecipe(value);
-      setCharacterCount(value.length);
-    }
-    if (name === "ingredients" && value.length <= 280) {
-      setRecipe(value);
-      setCharacterCount(value.length);
-    }
-    if (name === "instructions" && value.length <= 280) {
-      setRecipe(value);
-      setCharacterCount(value.length);
+      console.log(value)
     }
 
-    console.log(name, value);
+  };
+
+  const handleServingsChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === "servings" && value.length <= 280) {
+      setRecipeServings(value);
+      setCharacterCount(value.length);
+    }
+    
+  };
+
+  const handleIngredientsChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === "ingredients" && value.length <= 280) {
+      setRecipeIngredients(value);
+      setCharacterCount(value.length);
+    }
+  };
+
+  const handleInstructionsChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === "instructions" && value.length <= 280) {
+      setRecipeInstructions(value);
+      setCharacterCount(value.length);
+    }
+    
   };
 
   return (
@@ -103,7 +146,7 @@ const RecipeForm = () => {
                       value={title}
                       className="form-title w-100"
                       style={{ lineHeight: "1.5", resize: "vertical" }}
-                      onChange={handleChange}
+                      onChange={handleTitleChange}
                     ></textarea>
                     <textarea
                       name="servings"
@@ -111,7 +154,7 @@ const RecipeForm = () => {
                       value={servings}
                       className="form-servings w-100"
                       style={{ lineHeight: "1.5", resize: "vertical" }}
-                      onChange={handleChange}
+                      onChange={handleServingsChange}
                     ></textarea>
                     <textarea
                       name="ingredients"
@@ -119,7 +162,7 @@ const RecipeForm = () => {
                       value={ingredients}
                       className="form-ingredients w-100"
                       style={{ lineHeight: "1.5", resize: "vertical" }}
-                      onChange={handleChange}
+                      onChange={handleIngredientsChange}
                     ></textarea>
                     <textarea
                       name="instructions"
@@ -127,7 +170,7 @@ const RecipeForm = () => {
                       value={instructions}
                       className="form-instructions w-100"
                       style={{ lineHeight: "1.5", resize: "vertical" }}
-                      onChange={handleChange}
+                      onChange={handleInstructionsChange}
                     ></textarea>
                   </div>
 
