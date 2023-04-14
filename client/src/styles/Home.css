@@ -14,7 +14,7 @@
 /*fills in void space until search results are displayed */
 /* NEED TO calc inside media queries */
 .results{
-    min-height: calc(100dvh - (23px + 586px));
+    min-height: calc(100dvh - (60px + 675px));
     margin-bottom: 15px;
 }
 
@@ -115,3 +115,13 @@
     right: 0;
     top: 0;
 }
+
+.row {
+    margin-top: 10px;
+}
+
+
+/* CHRISTIAN'S STYLE SUPER SECRET INFO */
+.d-block {
+    object-fit: cover;
+  }

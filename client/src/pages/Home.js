@@ -1,7 +1,8 @@
 // Search books is now HOME
 import React from 'react';
-import Header from '../components/header/index';
+// import Header from '../components/header/index';
 import SearchGPT from '../components/forms/SearchGPT';
+import QuervoMix from '../components/spm/QuervoMix';
 
 
 
@@ -12,7 +13,8 @@ import '../styles/Home.css';
 const Home = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
+      <QuervoMix />
       <SearchGPT />
 
     </>
