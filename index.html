@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mystyle.css">
+<title>Document</title>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+</head>
+<body>
+    <div>
+        <header>
+            <h1>Chef JR Recipe</h1>
+        </header>
+        <nav>
+            <ul>
+                <li>Vegetables</li>
+                <li>Drinks</li>
+                <li>Dinner</li>
+                <li>Desert</li>
+            </ul>
+
+        </nav>
+        <section>
+            <aside>
+                <p>This is side bar
+                </p>
+            </aside>
+                <div class="swiper myslider">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                      <!-- Slides -->
+                      <div class="swiper-slide"><img src="https://scontent-hou1-1.xx.fbcdn.net/v/t1.6435-9/150420985_1158864551245343_5861958861759084504_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=LOHUKX-IhxAAX-IwKnh&_nc_ht=scontent-hou1-1.xx&oh=00_AfCKIIw50Btex6GBrABHL3400AoUdgyAdUtgcIs30MlkVw&oe=645D602E" width=> alt</div>
+                      <div class="swiper-slide"><img src="https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-6/322487958_3335658810031847_4750461658261094890_n.jpg?stp=cp6_dst-jpg&_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=08DpJOdILYMAX9EzIFi&_nc_ht=scontent-hou1-1.xx&oh=00_AfDuHqs-O0irhhQOQ2ghDQCu7u-w1241UUXbZkrDG4UvwQ&oe=64391A9B"></div>
+                      <div class="swiper-slide"><img src="https://scontent-hou1-1.xx.fbcdn.net/v/t1.6435-9/150071540_1158864567912008_9027735777727206803_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=K94H7uMqC5oAX_Q4n9P&_nc_ht=scontent-hou1-1.xx&oh=00_AfADDkCNq0J3hD34MdlLpc-i106kL6bJvsz_G1_YjNyA-A&oe=645C43A0"></div>
+                      <div class="swiper-slide"><img src="https://scontent-hou1-1.xx.fbcdn.net/v/t31.18172-8/178634_3997652828637_914007007_o.jpg?_nc_cat=111&ccb=1-7&_nc_sid=ba80b0&_nc_ohc=j9RrVejgBqMAX-FOZMF&_nc_ht=scontent-hou1-1.xx&oh=00_AfDBPc0RT3ZLP2pUcaK64pvu0stAB3H4C2fLYvLSJ89YpQ&oe=645C2B9E">Slide 3</div>
+
+                      ...
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+                  
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                  
+                </div>
+
+                
+                
+            </div>
+            
+
+        
+
+        </section>
+        <section>
+        <h3>This is second section</h3>
+        <p>This is another paragraph in second section</p>
+        </section>
+
+        <footer>
+            
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".myslider",{
+            navigation:{
+                nextEl:".swiper-button-next",
+                prevEl:".swiper-button-prev",
+            }
+        })
+    </script>
+    <div class="container">
+            
+</body>
+</html>

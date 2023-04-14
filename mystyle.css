@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    background-color: orange;
+    /* width: 0%; */
+    height: 45%;
+
+}
+
+.container div {
+    background-color: rgb(163, 245, 11);
+    align-items: center;
+    margin: 100px;
+    width: 100px;
+}
+
+img{
+    width: 100px;
+    height: 700px;
+}
+
+.swiper{
+    width:80%;
+    height: fit-content;
+}
+
+.swiper-slide img{
+    width:100%;
+
+}
+
+*{
+    padding:0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+}
+nav{
+    background: orange
+    height: 80px;
+    
+}
