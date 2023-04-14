@@ -3,7 +3,7 @@
 // add field for an amount that would like to donate.  and from here we'll call the api for payments.
 
 import React from 'react';
-import DonateForm from '../components/forms/DonateForm';
+import DonateForm from '../components/forms/DonateForm.js';
 
 import '../styles/Donate.css'
 
