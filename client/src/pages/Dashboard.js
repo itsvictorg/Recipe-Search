@@ -30,17 +30,17 @@ const Dashboard = () => {
   const [deleteRecipe] = useMutation(REMOVE_RECIPE);
   const userData = data?.me || {};
 
-  const handleDeleteRecipe = async (recipeId) => {
+  const handleDeleteRecipe = async (id) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;  
 
     if(!token){return false;};
 
     try{
       await deleteRecipe({
-        variables: { recipeId },
+        variables: { id },
       });
 
-      removeRecipeId(recipeId);
+      removeRecipeId(id);
     }catch(err){
       console.log(err);
     };
@@ -81,7 +81,7 @@ const Dashboard = () => {
                       document.querySelector('.recipe-ingredients').textContent = e.target.parentElement.dataset.ingredients;
                       document.querySelector('.recipe-instructions').textContent = e.target.parentElement.dataset.instructions;
                       }}>View Recipe</button>
-                    <Button className='btn-block btn-danger' onClick={() => handleDeleteRecipe(recipe.recipeId)}>
+                    <Button className='btn-block btn-danger' onClick={() => handleDeleteRecipe(recipe._id)}>
                       Delete this Recipe!
                     </Button>
                   </Card.Body>

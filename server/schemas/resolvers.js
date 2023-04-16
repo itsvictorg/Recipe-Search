@@ -102,26 +102,23 @@ const resolvers = {
       throw new AuthenticationError("You must be logged in!");
     },
     // pull recipe id from args to remove
-    removeRecipe: async (parent, { recipeId }, context) => {
+    removeRecipe: async (parent, { id }, context) => {
 
-      console.log('RESOLVER removeRecipe', recipeId);
+      console.log('RESOLVER removeRecipe', id);
 
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedRecipes: { recipeId: recipeId } } },
+          { $pull: { savedRecipes: { _id: id } } },
           { new: true }
-        ).populate("savedRecipes");
+        )
 
         return updatedUser;
       }
       throw new AuthenticationError("You must be logged in!");
     },
-    addRecipe: async (parent, {title, servings, ingredients, instructions}) => {
-      const newRecipe = await Recipe.create({title, servings, ingredients, instructions});
-      return newRecipe;
-    }
   },
+    
 };
 
 module.exports = resolvers;

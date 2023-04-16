@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   input RecipeInput {
-    recipeId: String!
+    recipeId: String
     title: String!
     servings: String!
     ingredients: String!
@@ -15,10 +15,12 @@ const typeDefs = gql`
     email: String!
     recipeCount: Int
     savedRecipes: [UserRecipe]
+    userRecipes: [UserRecipe]
   }
 
   type UserRecipe {
-    recipeId: ID!
+    _id: ID!
+    recipeId: ID
     title: String!
     servings: String!
     ingredients: String!
@@ -38,8 +40,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     saveRecipe(newRecipe: RecipeInput!): User
-    removeRecipe(recipeId: ID!): User
-    addRecipe( title: String!, servings: String!, ingredients: String!, instructions: String!): UserRecipe
+    removeRecipe(id: ID!): User
     addDonation( name: String!, amount: String!, message: String!): User
   }
 `;
