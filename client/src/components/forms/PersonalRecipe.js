@@ -2,38 +2,28 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
-import { ADD_RECIPE } from "../../utils/mutations";
-import { QUERY_RECIPES } from "../../utils/queries";
+import { SAVE_RECIPE } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
 
 const RecipeForm = () => {
-  const [{ title, servings, ingredients, instructions }, setRecipe] =
-    useState("");
+
+
+  const [recipe, setRecipe] = useState({});
+
+    const { title, servings, ingredients, instructions } = recipe;
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addRecipe, { error }] = useMutation(ADD_RECIPE, {
-    update(cache, { data: { addRecipe } }) {
-      try {
-        const { recipes } = cache.readQuery({ query: QUERY_RECIPES });
-
-        cache.writeQuery({
-          query: QUERY_RECIPES,
-          data: { recipes: [addRecipe, ...recipes] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
-    },
-  });
-
+// addRecipe is the mutation function
+  const [saveRecipe, { error }] = useMutation(SAVE_RECIPE);
+// handleFormSubmit is the function that is called when the form is submitted
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const { data } = await addRecipe({
-        variables: { title, servings, ingredients, instructions },
+      const { data } = await saveRecipe({
+        variables: { newRecipe: recipe },
       });
 
       setRecipe("");
@@ -42,27 +32,14 @@ const RecipeForm = () => {
       console.error(err);
     }
   };
-
+// handleChange is the function that is called when the form is changed
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === "title" && value.length <= 280) {
-      setRecipe(value);
+    if (value.length <= 280) {
+      setRecipe({...recipe, [name]: value});
       setCharacterCount(value.length);
     }
-    if (name === "servings" && value.length <= 280) {
-      setRecipe(value);
-      setCharacterCount(value.length);
-    }
-    if (name === "ingredients" && value.length <= 280) {
-      setRecipe(value);
-      setCharacterCount(value.length);
-    }
-    if (name === "instructions" && value.length <= 280) {
-      setRecipe(value);
-      setCharacterCount(value.length);
-    }
-
     console.log(name, value);
   };
 

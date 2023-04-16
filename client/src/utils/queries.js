@@ -8,6 +8,7 @@ export const GET_ME = gql`
       recipeCount
       email
       savedRecipes {
+        _id
         recipeId
         title
         servings

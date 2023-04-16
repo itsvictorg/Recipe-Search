@@ -5,7 +5,6 @@ const userRecipeSchema = new Schema(
   {
     recipeId: {
         type: String,
-        required: true,
     },
     title: {
       type: String,
