@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 };
 
 // server this compiled output index file
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
